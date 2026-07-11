@@ -77,6 +77,15 @@ prj
   → f a
 prj p = on p pure (const empty)
 
+foreign import onImpl
+  ∷ ∀ sym a b r1 r2
+  . (Proxy sym → String)
+  → Proxy sym
+  → (a → b)
+  → (Variant r1 → b)
+  → Variant r2
+  → b
+
 -- | Attempt to read a variant at a given label by providing branches.
 -- | The failure branch receives the provided variant, but with the label
 -- | removed.
@@ -89,16 +98,7 @@ on
   → (Variant r1 → b)
   → Variant r2
   → b
-on p f g r =
-  case coerceV r of
-    VariantRep v | v.type == reflectSymbol p → f v.value
-    _ → g (coerceR r)
-  where
-  coerceV ∷ Variant r2 → VariantRep a
-  coerceV = unsafeCoerce
-
-  coerceR ∷ Variant r2 → Variant r1
-  coerceR = unsafeCoerce
+on = onImpl reflectSymbol
 
 -- | Match a `Variant` with a `Record` containing functions for handling cases.
 -- | This is similar to `on`, except instead of providing a single label and
