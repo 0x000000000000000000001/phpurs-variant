@@ -6,6 +6,7 @@
   },
   "devDependencies": {
     "spago": "^0.20.8",
-    "purescript-psa": "^0.8.2"
+    "purescript-psa": "^0.8.2",
+    "purescript": "github:0x000000000000000000001/purescript-npm"
   }
 }
