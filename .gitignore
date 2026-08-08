@@ -8,3 +8,5 @@
 npm-debug.log
 .psa-stash
 .spago
+.DS_Store
+output
