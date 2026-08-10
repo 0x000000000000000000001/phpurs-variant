@@ -10,3 +10,4 @@ npm-debug.log
 .spago
 .DS_Store
 output
+.psc-ide-port
