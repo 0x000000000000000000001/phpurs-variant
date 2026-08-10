@@ -15,10 +15,6 @@ package:
     - tuples
     - type-equality
     - unsafe-coerce
-workspace:
-  packageSet:
-    registry: 73.3.0
-
   test:
     main: Test.Main
     dependencies:
