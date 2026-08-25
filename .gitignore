@@ -1,7 +1,8 @@
 /bower_components/
 /node_modules/
 /.pulp-cache/
-/output/
+output/
+output.bak/
 /.psc*
 /.purs*
 /src/.webpack.js
@@ -10,4 +11,5 @@ npm-debug.log
 .spago
 .DS_Store
 output
+output.bak
 .psc-ide-port
